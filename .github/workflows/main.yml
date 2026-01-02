@@ -26,10 +26,11 @@ jobs:
         env:
           SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACOUNT }}
         run: |
-          mkdir -p ~/.config/gspread/
+          mkdir -p $HOME/.config/gspread/
           echo "$SERVICE_ACCOUNT" > ~/.config/gspread/service_account.json
 
       - name: "Update sheet"
         env:
           GS_SHEET_KEY: ${{ secrets.GS_SHEET_KEY }}
-        run: python3 main.py
+        run: |
+          uv run python3 main.py
