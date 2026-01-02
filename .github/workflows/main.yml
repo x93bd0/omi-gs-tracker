@@ -24,7 +24,7 @@ jobs:
 
       - name: "Copy service account"
         env:
-          SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACOUNT }}
+          SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
         run: |
           mkdir -p $HOME/.config/gspread/
           echo "$SERVICE_ACCOUNT" > ~/.config/gspread/service_account.json
