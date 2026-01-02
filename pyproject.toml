@@ -1,0 +1,15 @@
+[project]
+name = "gsh"
+version = "0.1.0"
+description = "A tool for generating tracking tables for competitive programming contests in Google Sheets"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "cforces>=0.2.1",
+    "colormath>=3.0.0",
+    "gspread>=6.2.1",
+    "webcolors>=25.10.0",
+]
+
+[tool.uv.sources]
+cforces = { git = "https://github.com/x93bd0/cforces" }
