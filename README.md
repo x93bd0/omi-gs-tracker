@@ -1,9 +1,13 @@
-<div align="center">
+<div id="user-content-toc" align="center">
 
-<h1 style="border-bottom: none">
-  <b>OMI Contest Tracker</b><br />
-  Track your pupil's progress!
-</h1>
+<ul style="list-style: none">
+  <summary>
+    <h1>
+      <b>OMI Contest Tracker</b><br/>
+      Track your pupil's progress!
+    </h1>
+  </summary>
+</ul>
 
 </div>
 
