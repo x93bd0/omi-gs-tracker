@@ -1,5 +1,6 @@
 from typing import Any
 import webcolors
+import datetime
 import gspread
 import cforces
 import asyncio
@@ -87,10 +88,12 @@ def main():
     gc = gspread.service_account()
     wks = gc.open_by_key(os.environ["GS_SHEET_KEY"]).sheet1
 
-    table_ref = None
     for x in range(1, 20):
-        if wks.cell(x, 1).value == "Competencia":
-            table_ref = x
+        match wks.cell(x, 1).value:
+            case "Competencia":
+                table_ref = x
+            case "Última Actualización":
+                last_update_ref = x
 
     if not table_ref:
         raise ValueError("No table was found")
@@ -157,6 +160,8 @@ def main():
     for id, user in enumerate(users):
         user_row = table_ref + id + 1
         wks.update_cell(user_row, 3, len(contests) - full_contests.get(user, 0) - 2)
+
+    wks.update_cell(last_update_ref, 2, datetime.datetime.now().strftime("%F %T"))
 
 
 if __name__ == "__main__":
